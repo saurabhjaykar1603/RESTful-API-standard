@@ -4,6 +4,7 @@ import dotenv from "dotenv";
 dotenv.config();
 
 import { getApiHealth } from "./controller/health.js";
+import { getApiUser } from "./controller/user.js";
 
 const app = express();
 
@@ -19,8 +20,10 @@ connDB();
 
 app.get("/api/health", getApiHealth);
 
+app.post("/api/users", getApiUser);
+
 const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => {
-  console.log(`server listening on ${PORT}`);   
+  console.log(`server listening on ${PORT}`);
 });
