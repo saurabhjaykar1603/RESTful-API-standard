@@ -4,7 +4,7 @@ import dotenv from "dotenv";
 dotenv.config();
 
 import { getApiHealth } from "./controller/health.js";
-import { postApiUser, putApiUser } from "./controller/user.js";
+import { postApiUser, putApiUser, patchApiUser } from "./controller/user.js";
 import { postApiv1Busses, postApiv2Busses } from "./controller/bus.js";
 import { postApiBooking, getApiBookings } from "./controller/booking.js";
 const app = express();
@@ -23,6 +23,8 @@ app.get("/api/v1/health", getApiHealth);
 
 app.post("/api/v1/users", postApiUser);
 app.put("/api/v1/users/:id", putApiUser);
+app.patch("/api/v1/users/:id", patchApiUser);
+
 
 app.post("/api/v1/busses", postApiv1Busses);
 
