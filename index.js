@@ -6,7 +6,7 @@ dotenv.config();
 import { getApiHealth } from "./controller/health.js";
 import { postApiUser } from "./controller/user.js";
 import { postApiv1Busses, postApiv2Busses } from "./controller/bus.js";
-import { postApiBooking } from "./controller/booking.js";
+import { postApiBooking, getApiBookings } from "./controller/booking.js";
 const app = express();
 
 app.use(express.json());
@@ -27,6 +27,8 @@ app.post("/api/v1/busses", postApiv1Busses);
 app.post("/api/v2/busses", postApiv2Busses);
 
 app.post("/api/bookings", postApiBooking);
+app.get("/api/bookings", getApiBookings);
+
 const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => {

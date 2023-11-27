@@ -28,4 +28,26 @@ const postApiBooking = async (req, res) => {
   }
 };
 
-export { postApiBooking };
+//GET / bookings
+const getApiBookings = async (req, res) => {
+  try {
+    const allBookings = await Booking.find().populate("user bus");
+
+    allBookings.forEach((booking) => {
+      booking.user.password = undefined;
+    });
+
+    res.status(200).json({
+      success: true,
+      data: allBookings,
+      message: "Bookings found successfully",
+    });
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: error.message || "Internal Server Error",
+    });
+  }
+};
+
+export { postApiBooking, getApiBookings };
