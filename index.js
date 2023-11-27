@@ -19,15 +19,17 @@ const connDB = async () => {
 };
 connDB();
 
-app.get("/api/health", getApiHealth);
+app.get("/api/v1/health", getApiHealth);
 
-app.post("/api/users", postApiUser);
+app.post("/api/v1/users", postApiUser);
 
 app.post("/api/v1/busses", postApiv1Busses);
-app.post("/api/v2/busses", postApiv2Busses);
 
-app.post("/api/bookings", postApiBooking);
-app.get("/api/bookings", getApiBookings);
+app.post("/api/v2/busses", postApiv2Busses); // v2 api routes for add tottle seats
+
+app.post("/api/v1/bookings", postApiBooking);
+
+app.get("/api/v1/bookings", getApiBookings);
 
 const PORT = process.env.PORT || 5000;
 
