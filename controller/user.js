@@ -82,5 +82,29 @@ const patchApiUser = async (req, res) => {
     });
   }
 };
+const DeleteApiUser = async (req, res) => {
+  const { id } = req.params;
 
-export { postApiUser, putApiUser, patchApiUser };
+  try {
+    const deletionResult = await User.deleteOne({ _id: id });
+
+    if (deletionResult.deletedCount === 1) {
+      return res.status(204).json({
+        success: true,
+        message: "User deleted successfully",
+      });
+    } else {
+      res.status(404).json({
+        success: false,
+        message: "User not found",
+      });
+    }
+  } catch (err) {
+    res.status(500).json({
+      success: false,
+      message: err.message,
+    });
+  }
+};
+
+export { postApiUser, putApiUser, patchApiUser, DeleteApiUser };

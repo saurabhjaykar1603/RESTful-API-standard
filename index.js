@@ -4,7 +4,12 @@ import dotenv from "dotenv";
 dotenv.config();
 
 import { getApiHealth } from "./controller/health.js";
-import { postApiUser, putApiUser, patchApiUser } from "./controller/user.js";
+import {
+  postApiUser,
+  putApiUser,
+  patchApiUser,
+  DeleteApiUser,
+} from "./controller/user.js";
 import { postApiv1Busses, postApiv2Busses } from "./controller/bus.js";
 import { postApiBooking, getApiBookings } from "./controller/booking.js";
 const app = express();
@@ -24,7 +29,7 @@ app.get("/api/v1/health", getApiHealth);
 app.post("/api/v1/users", postApiUser);
 app.put("/api/v1/users/:id", putApiUser);
 app.patch("/api/v1/users/:id", patchApiUser);
-
+app.delete("/api/v1/users/:id", DeleteApiUser);
 
 app.post("/api/v1/busses", postApiv1Busses);
 
@@ -32,7 +37,7 @@ app.post("/api/v2/busses", postApiv2Busses); // v2 api routes for add tottle sea
 
 app.post("/api/v1/bookings", postApiBooking);
 
-app.get("/api/v1/bookings", getApiBookings);
+app.get("/api/v1/bookings", DeleteApiUser);
 
 const PORT = process.env.PORT || 5000;
 
