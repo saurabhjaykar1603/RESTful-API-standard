@@ -4,7 +4,8 @@ import dotenv from "dotenv";
 dotenv.config();
 
 import { getApiHealth } from "./controller/health.js";
-import { getApiUser } from "./controller/user.js";
+import { postApiUser } from "./controller/user.js";
+import { postApiBusses } from "./controller/bus.js";
 
 const app = express();
 
@@ -20,8 +21,9 @@ connDB();
 
 app.get("/api/health", getApiHealth);
 
-app.post("/api/users", getApiUser);
+app.post("/api/users", postApiUser);
 
+app.post("/api/busses", postApiBusses);
 const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => {
