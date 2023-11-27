@@ -14,6 +14,9 @@ const busSchema = new Schema(
       type: String,
       enum: ["ac", "nonac"],
     },
+    totalSeatCount: {
+      type: Number,
+    },
   },
   {
     timestamps: true,
