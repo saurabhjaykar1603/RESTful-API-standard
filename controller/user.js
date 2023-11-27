@@ -1,6 +1,6 @@
 import User from "./../models/User.js";
 
-const getApiUser = async (req, res) => {
+const postApiUser = async (req, res) => {
   const { userName, email, password } = req.body;
   const user =  User({
     userName,
@@ -21,4 +21,4 @@ const getApiUser = async (req, res) => {
   }
 };
 
-export { getApiUser };
+export { postApiUser };
