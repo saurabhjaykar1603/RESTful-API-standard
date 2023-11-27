@@ -1,6 +1,6 @@
 import User from "./../models/User.js";
 
-const postApiUser = async (req, res) => {
+const postApiv1User = async (req, res) => {
   const { userName, email, password } = req.body;
   const user = User({
     userName,
@@ -21,7 +21,7 @@ const postApiUser = async (req, res) => {
   }
 };
 
-const putApiUser = async (req, res) => {
+const putApiv1User = async (req, res) => {
   const { id } = req.params;
   const { userName, email, password } = req.body;
 
@@ -52,7 +52,7 @@ const putApiUser = async (req, res) => {
   }
 };
 
-const patchApiUser = async (req, res) => {
+const patchApiv1User = async (req, res) => {
   const { id } = req.params;
   const { userName, email, password } = req.body;
 
@@ -82,7 +82,7 @@ const patchApiUser = async (req, res) => {
     });
   }
 };
-const DeleteApiUser = async (req, res) => {
+const DeleteApiv1User = async (req, res) => {
   const { id } = req.params;
 
   try {
@@ -107,4 +107,4 @@ const DeleteApiUser = async (req, res) => {
   }
 };
 
-export { postApiUser, putApiUser, patchApiUser, DeleteApiUser };
+export { postApiv1User, putApiv1User, patchApiv1User, DeleteApiv1User };
